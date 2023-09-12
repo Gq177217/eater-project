@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Shop;
 use Illuminate\Http\Request;
-//テゴリを取り扱うCategoryモデルをshopController.php内で使用することができます。
+//カテゴリを取り扱うCategoryモデルをshopController.php内で使用
 use App\Models\Category;
 
 class ShopController extends Controller
@@ -51,6 +51,10 @@ class ShopController extends Controller
         $shop->name = $request->input('name');
         $shop->description = $request->input('description');
         $shop->price = $request->input('price');
+
+        $shop->postalcode = $request->input('postalcode');
+        $shop->address = $request->input('address');
+        $shop->operating_hours = $request->input('operating_hours');
         //category_idをデータベースに保存
         $shop->category_id = $request->input('category_id');
         $shop->save();
@@ -103,6 +107,9 @@ class ShopController extends Controller
         $shop->name = $request->input('name');
         $shop->description = $request->input('description');
         $shop->price = $request->input('price');
+        $shop->postalcode = $request->input('postalcode');
+        $shop->address = $request->input('address');
+        $shop->operating_hours = $request->input('operating_hours');
         $shop->category_id = $request->input('category_id');
 
         //$shop->update();で更新

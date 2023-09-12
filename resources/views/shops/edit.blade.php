@@ -27,6 +27,23 @@
          <strong>Price:</strong>
          <input type="number" name="price"  value="{{ $shop->price }}">
      </div>
+
+
+     <div>
+         <strong>Postalcode:</strong>
+         <input type="number" name="postalcode"  value="{{ $shop->postalcode }}">
+     </div>
+
+     <div>
+         <strong>Address:</strong>
+         <input type="text" name="address"  value="{{ $shop->address}}">
+     </div>
+
+     <div>
+         <strong>Operating Hours:</strong>
+         <input type="time" name="operating_hours"  value="{{ $shop->operating_hours }}">
+     </div>
+
      <div>
          <strong>Category:</strong>
          <select name="category_id">

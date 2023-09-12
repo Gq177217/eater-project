@@ -25,17 +25,17 @@ class CategoriesTableSeeder extends Seeder
             'ベジタリアン', 'ベーカリー', '寿司', 'ラーメン', '焼肉', '韓国料理', 'タイ料理', 'インド料理',
             'ベトナム料理', 'メキシコ料理', 'モロッコ料理', 'ギリシャ料理', 'ブラジル料理', 'ペルシャ料理', 'エチオピア料理',
             'シーフード', '素食', 'ビーガン', 'フュージョン', 'バー', 'パブ', 'カクテル', 'デリカテッセン',
-            'ファーストフード', 'オーガニック', 'スイーツ', 'アイスクリーム', 'ベーカリーカフェ'
+            'ファーストフード', 'オーガニック', 'スイーツ', 'アイスクリーム', 'ベーカリーカフェ',
         
         ];
 
         foreach ($major_category_names as $major_category_name) {
             if ($major_category_name == '店舗') {
-            foreach ($shop_categories as  $shop_categories) {
+            foreach ($shop_categories as  $shop_category) {
             Category::create([
-            'name' =>   $shop_categories,
-            'description' =>   $shop_categories,
-            'major_category_name' => 'デフォルト値' // 適切なデフォルト値を設定
+            'name' =>   $shop_category,
+            'description' =>   $shop_category,
+            'major_category_name' => $major_category_name, // 適切なデフォルト値を設定
               ]);  
             }
         }

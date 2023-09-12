@@ -21,6 +21,20 @@
          <input type="number" name="price" placeholder="Price">
      </div>
      <div>
+         <strong>Postalcode:</strong>
+         <input type="number" name="postalcode" placeholder="postalcode">
+     </div>
+
+     <div>
+         <strong>Address:</strong>
+         <input type="text" name="address" placeholder="address">
+     </div>
+     <div>
+         <strong>Operating Hours:</strong>
+         <input type="time" name="operating_hours" placeholder="operating_hours">
+     </div>
+
+     <div>
          <strong>Category:</strong>
          <select name="category_id">
          @foreach ($categories as $category)

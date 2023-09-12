@@ -20,3 +20,18 @@
      <strong>Price:</strong>
      {{$shop->price}} 
  </div>
+
+ <div>
+     <strong>Postalcode:</strong>
+     {{$shop->postalcode}} 
+ </div>
+
+ <div>
+     <strong>Address:</strong>
+     {{$shop->price}} 
+ </div>
+
+ <div>
+     <strong>OperatingHours:</strong>
+     {{$shop->operating_hours}} 
+ </div>

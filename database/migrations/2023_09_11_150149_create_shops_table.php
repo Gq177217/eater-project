@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id')->unsigned();// カテゴリを外部キーとして関連付ける
-            $table->string('shop_name');
+            $table->string('name');
+	        $table->text('description');
+	        $table->integer('price')->unsigned();
             $table->unsignedInteger('postalcode');
             $table->text('address');
-            $table->integer('price')->unsigned();
-            $table->text('description');
             $table->text('operating_hours');
+ 	        $table->integer('category_id')->unsigned();// カテゴリを外部キーとして関連付ける
             $table->timestamps();
         });
     }
