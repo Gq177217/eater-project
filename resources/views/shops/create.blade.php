@@ -1,49 +1,34 @@
-<div>
-     <h2>Add New Shop</h2>
+@extends('layouts.app')
+ 
+ @section('content')
+ <div class="container">
+     <h1>新しい店舗を追加</h1>
+ 
+     <form action="{{ route('shops.store') }}" method="POST">
+         @csrf
+         <div class="form-group">
+             <label for="shop-name">店舗名</label>
+             <input type="text" name="name" id="shop-name" class="form-control">
+         </div>
+         <div class="form-group">
+             <label for="shop-description">店舗説明</label>
+             <textarea name="description" id="shop-description" class="form-control"></textarea>
+         </div>
+         <div class="form-group">
+             <label for="shop-price">価格</label>
+             <input type="number" name="price" id="shop-price" class="form-control">
+         </div>
+         <div class="form-group">
+             <label for="shop-category">カテゴリ</label>
+             <select name="category_id" class="form-control" id="shop-category">
+                 @foreach ($categories as $category)
+                     <option value="{{ $category->id }}">{{ $category->name }}</option>
+                 @endforeach
+             </select>
+         </div>
+         <button type="submit" class="btn btn-success">店舗を登録</button>
+     </form>
+ 
+     <a href="{{ route('shops.index') }}">店舗一覧に戻る</a>
  </div>
- <div>
-     <a href="{{ route('shops.index') }}"> Back</a>
- </div>
- 
- <form action="{{ route('shops.store') }}" method="POST">
-     @csrf
- 
-     <div>
-         <strong>Name:</strong>
-         <input type="text" name="name" placeholder="Name">
-     </div>
-     <div>
-         <strong>Description:</strong>
-         <textarea style="height:150px" name="description" placeholder="Description"></textarea>
-     </div>
-     <div>
-         <strong>Price:</strong>
-         <input type="number" name="price" placeholder="Price">
-     </div>
-     <div>
-         <strong>Postalcode:</strong>
-         <input type="number" name="postalcode" placeholder="postalcode">
-     </div>
-
-     <div>
-         <strong>Address:</strong>
-         <input type="text" name="address" placeholder="address">
-     </div>
-     <div>
-         <strong>Operating Hours:</strong>
-         <input type="time" name="operating_hours" placeholder="operating_hours">
-     </div>
-
-     <div>
-         <strong>Category:</strong>
-         <select name="category_id">
-         @foreach ($categories as $category)
-         <option value="{{ $category->id }}">{{ $category->name }}</option>
-         @endforeach
-         </select>
-     </div>
-     <div>
-         <button type="submit">Submit</button>
-     </div>
- 
- </form>
+ @endsection

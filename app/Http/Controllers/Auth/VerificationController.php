@@ -1,42 +1,27 @@
-<?php
-
-namespace App\Http\Controllers\Auth;
-
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\VerifiesEmails;
-
-class VerificationController extends Controller
-{
-    /*
-    |--------------------------------------------------------------------------
-    | Email Verification Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller is responsible for handling email verification for any
-    | user that recently registered with the application. Emails may also
-    | be re-sent if the user didn't receive the original email message.
-    |
-    */
-
-    use VerifiesEmails;
-
-    /**
-     * Where to redirect users after verification.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('signed')->only('verify');
-        $this->middleware('throttle:6,1')->only('verify', 'resend');
-    }
-}
+@extends('layouts.app')
+ 
+ @section('content')
+ <div class="container">
+     <div class="row justify-content-center">
+         <div class="col-md-5">
+       
+             <h3 class="text-center">会員登録ありがとうございます！</h3>
+ 
+             <p class="text-center">
+                 現在、仮会員の状態です。  
+             </p>
+ 
+             <p class="text-center">
+                 ただいま、ご入力いただいたメールアドレス宛に、ご本人様確認用のメールをお送りしました。  
+             </p>
+ 
+             <p class="text-center">
+                 メール本文内のURLをクリックすると本会員登録が完了となります。  
+             </p>
+             <div class="text-center">
+                 <a href="{{ url('/') }}" class="btn eater-submit-button w-50 text-white">トップページへ</a>
+             </div>
+         </div>
+     </div>
+ </div>
+ @endsection

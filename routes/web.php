@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
+use App\http\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +18,11 @@ use App\Http\Controllers\ShopController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::resource('shops', ShopController::class);
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
+Route::resource('products', ProductController::class)->middleware(['auth', 'verified']);
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/shops', [App\Http\Controllers\ShopController::class, 'index'])->name('shops');
